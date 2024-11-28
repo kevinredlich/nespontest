@@ -8,13 +8,13 @@ module.exports = {
     lastNameField: 'input[name="lastName"]',
     saveButton: 'button[type="submit"]',
 
-    vacancyDropdown: 'div[class*="oxd-select-text--active"]', // Selector del dropdown de vacancy
-    vacancyOption: '//div[text()="Senior QA Lead"]', // XPath de la opción específica
-    emailField: 'input[placeholder="Type here"]', // Campo de email
-    phoneNumberField: 'input[placeholder="Type here"]', // Campo de teléfono
-    shortlistButton: 'button.oxd-button.oxd-button--medium.oxd-button--success', // Selector CSS para el botón Shortlist
-    ScheduleInterviewButton: 'button.oxd-button.oxd-button--medium.oxd-button--success', // Selector CSS para el botón de Schedule Interview
-    interViewTitleInput: '(//input[@data-v-1f99f73c])[6]', // Selector por XPATH
+    vacancyDropdown: 'div[class*="oxd-select-text--active"]', 
+    vacancyOption: '//div[text()="Senior QA Lead"]', 
+    emailField: 'input[placeholder="Type here"]', 
+    phoneNumberField: 'input[placeholder="Type here"]', 
+    shortlistButton: 'button.oxd-button.oxd-button--medium.oxd-button--success', 
+    ScheduleInterviewButton: 'button.oxd-button.oxd-button--medium.oxd-button--success', 
+    interViewTitleInput: '(//input[@data-v-1f99f73c])[6]',
     InterviewerInput: 'input[data-v-75e744cd]',
     rangaAkunuriInterviewer: 'span[data-v-08362132]',
     dateInputField: 'input[data-v-4a95a2e0]',

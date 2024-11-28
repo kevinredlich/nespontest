@@ -7,7 +7,7 @@ class Actor {
     }
 
     async prepares(browserType = 'chromium') {
-        this.browser = await require('playwright')[browserType].launch({ headless: false });
+        this.browser = await require('playwright')[browserType].launch({ headless: true });
         this.context = await this.browser.newContext();
         this.page = await this.context.newPage();
         return this;

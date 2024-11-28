@@ -2,7 +2,7 @@ const locators = require('../locators/Locators');
 
 const HireButton = {
     async performAs(actor) {
-        // Ensure the button is visible and clickable
+        // Espera explícita para asegurarse de que los botones están cargados
         await actor.page.waitForSelector(locators.hireButton, { timeout: 100000 });
         await actor.page.click(locators.hireButton);
     }
