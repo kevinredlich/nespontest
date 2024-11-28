@@ -1,32 +1,47 @@
-Playwright Screenplay Automation
-Introducción
-Este proyecto implementa la automatización del flujo de reclutamiento en OrangeHRM, desde la creación de un candidato hasta la contratación con el estado final Hired. La automatización está diseñada utilizando el patrón Screenplay con Playwright y Cucumber, asegurando modularidad, escalabilidad y mantenibilidad.
-
-Historia de Usuario
-En español:
-
-Como reclutador en OrangeHRM,
-Quiero automatizar el flujo de reclutamiento de un candidato,
-Para reducir el tiempo y errores al realizar la contratación.
-
-In English:
-
-As a recruiter in OrangeHRM,
-I want to automate the recruitment flow for a candidate,
-So that I can reduce the time and errors when completing the hiring process.
-
-Tecnologías Utilizadas
-Playwright: Framework de automatización para realizar acciones en el navegador.
-Cucumber: Define los escenarios en lenguaje Gherkin, facilitando la comprensión para usuarios técnicos y no técnicos.
-Patrón Screenplay: Estructura que separa responsabilidades en:
-Actors: Representan a los usuarios que ejecutan las pruebas.
-Tasks: Encapsulan las acciones que los usuarios realizan.
-Questions: Validan las condiciones esperadas.
-Locators: Centralizan los selectores para una mayor mantenibilidad.
-
-Estructura del Proyecto
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Playwright Screenplay Automation</h1>
+    <h2>Introducción</h2>
+    <p>
+        Este proyecto implementa la automatización del flujo de reclutamiento en 
+        <strong>OrangeHRM</strong>, desde la creación de un candidato hasta la contratación 
+        con el estado final <code>Hired</code>. La automatización está diseñada utilizando 
+        el <strong>patrón Screenplay</strong> con <strong>Playwright</strong> y 
+        <strong>Cucumber</strong>, asegurando modularidad, escalabilidad y mantenibilidad.
+    </p>
+    <h2>Historia de Usuario</h2>
+    <h3>En español:</h3>
+    <blockquote>
+        Como reclutador en OrangeHRM,<br>
+        Quiero automatizar el flujo de reclutamiento de un candidato,<br>
+        Para reducir el tiempo y errores al realizar la contratación.
+    </blockquote>
+    <h3>In English:</h3>
+    <blockquote>
+        As a recruiter in OrangeHRM,<br>
+        I want to automate the recruitment flow for a candidate,<br>
+        So that I can reduce the time and errors when completing the hiring process.
+    </blockquote>
+    <h2>Tecnologías Utilizadas</h2>
+    <ul>
+        <li><strong>Playwright:</strong> Framework de automatización para realizar acciones en el navegador.</li>
+        <li><strong>Cucumber:</strong> Define los escenarios en lenguaje Gherkin, facilitando la comprensión para usuarios técnicos y no técnicos.</li>
+        <li><strong>Patrón Screenplay:</strong> Estructura que separa responsabilidades en:
+            <ul>
+                <li><strong>Actors:</strong> Representan a los usuarios que ejecutan las pruebas.</li>
+                <li><strong>Tasks:</strong> Encapsulan las acciones que los usuarios realizan.</li>
+                <li><strong>Questions:</strong> Validan las condiciones esperadas.</li>
+                <li><strong>Locators:</strong> Centralizan los selectores para una mayor mantenibilidad.</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>Estructura del Proyecto</h2>
+    <pre>
 playwright-screenplay/
 ├── actors/
 │   └── Actor.js             # Define los actores en el patrón Screenplay
@@ -48,12 +63,11 @@ playwright-screenplay/
 ├── tests/
 │   └── playwright.config.js # Configuración de Playwright
 ├── package.json             # Dependencias y scripts de npm
-
-
-
-Feature: Recruitment process in OrangeHRM
-
-  Scenario: Add a new hire and validate status
+    </pre>
+    <h2>Escenarios Automatizados</h2>
+    <h3>Escenario Principal:</h3>
+    <pre>
+Scenario: Add a new hire and validate status
     Given the user logs into the OrangeHRM application
     When the user navigates to the Recruitment module
     When the user clicks the Add button
@@ -74,36 +88,32 @@ Feature: Recruitment process in OrangeHRM
     When the user click hire button
     When the user click save button
     Then the user should see the status of the hire as "Hired"
-
-
-Cómo Ejecutar el Proyecto
-1. Clonar el Repositorio
-git clone <URL_DEL_REPOSITORIO>
-cd playwright-screenplay
-2. Instalar Dependencias
-npm install
-3. Configurar Playwright
-npx playwright install
-4. Ejecutar las Pruebas
-npx cucumber-js --require step_definitions/ features/
-
-Prioridad en la Identificación de Objetos
-Para identificar elementos en el DOM, se aplicó el siguiente orden de prioridades:
-
-Selectores únicos: Se priorizan atributos como id y data-* cuando están disponibles:
-
-addButton: 'button[data-v-12345]'
-Clases únicas: Si no hay identificadores únicos, se usan clases con nombres específicos:
-
-recruitmentStatusField: 'div.orangehrm-recruitment-status'
-Combinar atributos y texto: En caso de elementos similares, se combinan clases y texto para mayor precisión:
-
-'//button[contains(@class, "oxd-button") and text()="Offer Job"]'
-XPath para casos complejos: Cuando otros métodos no son suficientes:
-
-(//button[contains(@class, "oxd-button--success")])[2]
-Puntos Clave del Proyecto
-Modularidad: El uso del patrón Screenplay facilita la escalabilidad y reutilización del código.
-Legibilidad: Escenarios en Gherkin para asegurar que sean comprensibles para todos los involucrados.
-Eficiencia: Selectores centralizados en Locators.js para facilitar el mantenimiento.
-Automatización Completa: Desde la creación del candidato hasta la validación del estado Hired.
+    </pre>
+    <h2>Cómo Ejecutar el Proyecto</h2>
+    <h3>1. Clonar el Repositorio</h3>
+    <pre>git clone &lt;URL_DEL_REPOSITORIO&gt;<br>cd playwright-screenplay</pre>
+    <h3>2. Instalar Dependencias</h3>
+    <pre>npm install</pre>
+    <h3>3. Configurar Playwright</h3>
+    <pre>npx playwright install</pre>
+    <h3>4. Ejecutar las Pruebas</h3>
+    <pre>npx cucumber-js --require step_definitions/ features/</pre>
+    <h3>
+    <p>
+        Para identificar elementos en el DOM, se aplicó el siguiente orden de prioridades:
+    </p>
+    <ol>
+        <li><strong>Selectores únicos:</strong> Se priorizan atributos como <code>id</code> y <code>data-*</code>.</li>
+        <li><strong>Clases únicas:</strong> Si no hay identificadores únicos, se usan clases específicas.</li>
+        <li><strong>Combinar atributos y texto:</strong> En caso de elementos similares, se combinan clases y texto.</li>
+        <li><strong>XPath para casos complejos:</strong> Cuando otros métodos no son suficientes.</li>
+    </ol>
+    <h2>Puntos Clave del Proyecto</h2>
+    <ul>
+        <li><strong>Modularidad:</strong> El uso del patrón Screenplay facilita la escalabilidad y reutilización del código.</li>
+        <li><strong>Legibilidad:</strong> Escenarios en Gherkin para asegurar que sean comprensibles para todos los involucrados.</li>
+        <li><strong>Eficiencia:</strong> Selectores centralizados en <code>Locators.js</code> para facilitar el mantenimiento.</li>
+        <li><strong>Automatización Completa:</strong> Desde la creación del candidato hasta la validación del estado <code>Hired</code>.</li>
+    </ul>
+</body>
+</html>
